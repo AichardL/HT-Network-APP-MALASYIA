@@ -6,6 +6,30 @@
     <style>.leaflet-tile-pane { filter: grayscale(70%); opacity: 0.8; }</style>
     <style>.leaflet-top.leaflet-right { z-index: 1100; }</style>
     <style>.leaflet-tooltip { font-size: 14px; font-family: Segoe UI, Helvetica, Arial, sans-serif; line-height: 1.4; }</style>
+    <style>
+      /* Keep the title panel above map overlays, and stop the legend from
+         growing into it on short screens. */
+      .kl-title { z-index: 1102 !important; }
+      .kl-legend { z-index: 1100 !important; }
+
+      @media (max-height: 760px) {
+        .kl-legend {
+          max-height: 180px;
+          overflow-y: auto;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .kl-title {
+          right: 14px;
+          max-width: none !important;
+        }
+        .kl-legend {
+          width: calc(100vw - 28px) !important;
+          max-width: 300px;
+        }
+      }
+    </style>
     <title>MALAYSIA (KLANG VALLEY): RAPID RAIL RIDES</title>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
